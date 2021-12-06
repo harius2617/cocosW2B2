@@ -15,6 +15,7 @@ cc.Class({
         tooltip: cc.Label,
         noti: cc.RichText,
         btnSignUp: cc.Button,
+
         userName: null,
         // _fullName,
     },
@@ -22,40 +23,37 @@ cc.Class({
     onLoad(){
         this.tooltip.node.active = false;
         this.noti.node.active = false;
-        this.btnSignUp.interactable = false;
+        // this.btnSignUp.interactable = false;
     },
     
-    editbegan(){
-        // if(this.node.getComponent(cc.EditBox).string.length == 0){
-            // this.tooltip.string = "Input PASSWORD here"
-            // this.tooltip.node.active = true;
-            // }
-        },
-
+    
     userNameCheck(){
-        this.userName = this.node.getComponent(cc.EditBox).string
-        if(this.userName.length >= 6) {
-            return true;
-        }else{
+        this.userName = this.node.getComponent(cc.EditBox).string;
+        cc.log(this.userName.length)
+        if(this.userName.length < 6) {
             this.tooltip.node.active = true;
-            this.tooltip.string = "User name must have at least 6 letters"
+            this.tooltip.string = "User name must have at least 6 letters";
+        }else{
+            this.tooltip.node.active = false;
+            return true;
         }
     },
         
     passwordCheck(){
         if(this.node.getComponent(cc.EditBox).string.match(/[0-9]/gm) && this.node.getComponent(cc.EditBox).string.match(/[A-Z]/gm)){
             this.tooltip.node.active = false;
+            // this.btnSignUp.interactable = true;
             return true;
         } else {
             this.tooltip.node.active = true;
             this.tooltip.string = "Passwords must contain at least one uppercase letters and one numbers."
         }
     },
-    
-    sigUpBtn () {
+
+    sigUpBtn() {
         if(this.userNameCheck() && this.passwordCheck()){
-            this.btnSignUp.interactable = true;
             this.noti.node.active = true;
         }
     },
+
 });

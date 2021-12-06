@@ -1,12 +1,13 @@
 {
   "version": "1.1.1",
   "windows": {
+    "worker": {},
     "main": {
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
       "x": 0,
-      "y": 25,
+      "y": 26,
       "width": 1680,
       "height": 945,
       "layout": {
@@ -80,15 +81,16 @@
       "panels": [
         "hierarchy",
         "assets",
-        "node-library",
         "console",
         "timeline",
         "game-window",
         "inspector",
         "cocos-services",
+        "node-library",
         "scene"
       ]
-    }
+    },
+    "window-1638784086119": {}
   },
   "panels": {
     "sprite-editor": {
@@ -96,6 +98,12 @@
       "y": 0,
       "width": 1680,
       "height": 1050
+    },
+    "builder": {
+      "x": 590,
+      "y": 109,
+      "width": 654,
+      "height": 728
     }
   }
 }
